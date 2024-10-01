@@ -1,9 +1,0 @@
-DELETE {
-    GRAPH ?g {
-        ?s <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#hasLatestFunctionalChange> ?o .
-    }
-} WHERE {
-    GRAPH ?g {
-        ?s <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#hasLatestFunctionalChange> ?o
-    }
-}

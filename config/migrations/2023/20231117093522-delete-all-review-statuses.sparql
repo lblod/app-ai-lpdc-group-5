@@ -1,9 +1,0 @@
-DELETE {
-    GRAPH ?g {
-        ?s <http://mu.semte.ch/vocabularies/ext/reviewStatus> ?o .
-    }
-} WHERE {
-    GRAPH ?g {
-        ?s <http://mu.semte.ch/vocabularies/ext/reviewStatus> ?o
-    }
-}
