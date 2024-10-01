@@ -1,0 +1,10 @@
+INSERT DATA {
+    GRAPH <http://mu.semte.ch/graphs/public> {
+        <http://lblod.data.gift/concepts/instance-status/ai-ontwerp>
+        a                                                   <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://mu.semte.ch/vocabularies/core/uuid>         """9af2d596-99e0-4c9d-80b0-fb08e9a6e903""" ;
+        <http://www.w3.org/2004/02/skos/core#inScheme>      <http://lblod.data.gift/concept-schemes/9cf6fa63-1f49-4d53-af06-e1c235ece10b> ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel>     "AI ontwerp"@nl ;
+        <http://www.w3.org/2004/02/skos/core#topConceptOf>  <http://lblod.data.gift/concept-schemes/9cf6fa63-1f49-4d53-af06-e1c235ece10b> .
+    }
+}
