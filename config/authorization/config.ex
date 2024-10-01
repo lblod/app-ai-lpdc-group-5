@@ -95,7 +95,26 @@ defmodule Acl.UserGroups.Config do
                         "http://data.europa.eu/m8g/Requirement",
                         "http://www.w3.org/ns/org#Organization",
                         "http://lblod.data.gift/vocabularies/organisatie/TypeVestiging",
-                        "http://lblod.data.gift/vocabularies/organisatie/OrganisatieStatusCode"
+                        "http://lblod.data.gift/vocabularies/organisatie/OrganisatieStatusCode",
+                        "https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#ConceptualPublicService",
+                        "https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#AbstractPublicService",
+                        "https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#InstancePublicService",
+                        "https://www.w3.org/ns/activitystreams#Tombstone",
+                        "http://data.europa.eu/m8g/PublicOrganisation",
+                        "http://data.europa.eu/m8g/Requirement",
+                        "http://data.europa.eu/m8g/Evidence",
+                        "http://purl.org/vocab/cpsv#Rule",
+                        "http://data.europa.eu/m8g/Cost",
+                        "http://data.europa.eu/m8g/Output",
+                        "https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#FinancialAdvantage",
+                        "http://data.europa.eu/eli/ontology#LegalResource",
+                        "http://schema.org/ContactPoint",
+                        "http://www.w3.org/ns/dcat#Distribution",
+                        "http://purl.org/dc/terms/Location",
+                        "http://schema.org/WebSite",
+                        "http://www.w3.org/ns/locn#Address",
+                        "http://data.lblod.info/vocabularies/lpdc/ConceptDisplayConfiguration",
+                        "http://data.lblod.info/vocabularies/lpdc/FormalInformalChoice",
                       ]
                     } },
                   %GraphSpec{
@@ -108,7 +127,8 @@ defmodule Acl.UserGroups.Config do
       %GroupSpec{
         name: "o-ipdc-lpdc-rwf",
         useage: [:read, :write, :read_for_write],
-        access: access_by_role( "LoketLB-LPDCGebruiker" ),
+        # access: access_by_role( "LoketLB-LPDCGebruiker" ),
+        access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{
