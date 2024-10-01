@@ -49,3 +49,15 @@ services:
     restart: "no"
   ldes-consumer-conceptsnapshot-ipdc:
     restart: "no"
+    ################################################################################
+  # Testing
+  ################################################################################
+  example:
+    image: semtech/mu-javascript-template:1.8.0
+    ports:
+      - "4201:80"
+    restart: always
+    environment:
+      NODE_ENV: "development"
+    volumes:
+      - ./config/example:/app/
