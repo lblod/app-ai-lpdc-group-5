@@ -127,8 +127,7 @@ defmodule Acl.UserGroups.Config do
       %GroupSpec{
         name: "o-ipdc-lpdc-rwf",
         useage: [:read, :write, :read_for_write],
-        # access: access_by_role( "LoketLB-LPDCGebruiker" ),
-        access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
+        access: access_by_role( "LoketLB-LPDCGebruiker" ),
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{
