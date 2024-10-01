@@ -1,0 +1,20 @@
+{
+  "name": "ldes-consumer",
+  "version": "1.0.0",
+  "description": "Stub of the IPDC ldes producer",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --watch /usr/app/src index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^9.0.1",
+    "nodemon": "^3.0.1",
+    "rdflib": "^2.2.33",
+    "jsonld": "8.3.2",
+    "lodash": "^4.17.21"
+  }
+}
