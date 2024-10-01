@@ -3,10 +3,37 @@
   * [Inleiding](#inleiding-)
   * [Stroomdiagramma](#stroomdiagramma)
   * [Technologie beschrijving](#technologie-beschrijving)
-  * [Contractspecificaties-semantisch model](#contractspecificaties---semantisch-model)
+    * [Linked Data](#linked-data-)
+    * [RDF (Resource Description Framework)](#rdf-resource-description-framework)
+      * [Inleiding](#inleiding)
+      * [IRIs](#iris)
+      * [Literals](#literals)
+      * [Triple-store](#triple-store)
+    * [Serialisatie-formaten voor RDF-data](#serialisatie-formaten-voor-rdf-data)
+      * [N-Triples](#n-triples)
+      * [Turtle](#turtle)
+      * [JSON-LD](#json-ld)
+    * [SPARQL (SPARQL Protocol and RDF Query Language)](#sparql-sparql-protocol-and-rdf-query-language)
+    * [SHACL (Shapes Constraint Language)](#shacl-shapes-constraint-language)
+    * [LDES (Linked Data Event Stream)](#ldes-linked-data-event-stream)
+      * [Inleiding](#inleiding-1)
+      * [Fragmentering en paginering](#fragmentering-en-paginering)
+      * [Versionering](#versionering)
+  * [Contractspecificaties - semantisch model](#contractspecificaties---semantisch-model)
   * [Voorbeelden + implementatie tips](#voorbeelden--implementatie-tips)
+    * [Uitvoerbare instantiesnapshot-LDES-stub](#uitvoerbare-instantiesnapshot-ldes-stub)
+    * [integrerende-gemeente-LDES-reader](#integrerende-gemeente-ldes-reader)
+      * [JSON-LD en context samenvoegen opmerkingen](#json-ld-en-context-samenvoegen-opmerkingen)
+    * [Voorbeeld pagina in detail](#voorbeeld-pagina-in-detail)
   * [Verklarende woordenlijst](#verklarende-woordenlijst)
+      * [Concept](#concept)
+      * [ConceptSnapshot](#conceptsnapshot)
+      * [Instantie](#instantie)
+      * [InstantieSnapshot](#instantiesnapshot)
   * [Referenties](#referenties)
+    * [Algemeen](#algemeen)
+    * [Gebruikte standaarden](#gebruikte-standaarden)
+    * [Broncode (open source) / Ondersteunende technologieën](#broncode-open-source--ondersteunende-technologieën)
 <!-- TOC -->
 
 ## Inleiding 
@@ -17,7 +44,7 @@ Dit document beschrijft hoe lokale besturen die een eigen oplossing hebben om pr
 
 Beschrijft op een hoog niveau de relevante datastromen tussen integrerende gemeente, LPDC en IPDC.
 
-![integrerende-gemeentes-stroomdiagramma.png](img%2Fintegrerende-gemeentes-stroomdiagramma.png)
+![integrerende-gemeentes-stroomdiagramma.png](img/integrerende-gemeentes-stroomdiagramma.png)
 
 1. **IPDCv3**: De interbestuurlijke producten en dienstencatalogus (IPDC) bevat producten en diensten van overheden in Vlaanderen. 
 Dit zijn producten van zowel bovenlokale als lokale besturen (gevoed vanuit de Lokale Producten en DienstenCatalogus (LPDC)).  
@@ -96,7 +123,7 @@ RDF is een graaf in de zin dat het een verzameling van triples is die een netwer
 
 Elke triple in een RDF-graaf bestaat uit een subject (onderwerp), een predicaat (predicate) en een object. Deze triples beschrijven de relaties tussen de bronnen.
 
-![rdf-triple-graaf.png](img%2Frdf-triple-graaf.png)
+![rdf-triple-graaf.png](img/rdf-triple-graaf.png)
 
 Merk op dat we rdf relaties unidirectioneel voorstellen in de graaf, in de richting van de triple beschrijving. Echter, semantisch dien je de relatie in beide richting te begrijpen. Je kan bv. vragen via SPARQL: _Wat is \<Bob\>?_ maar ook _Wie \<is een\> \<persoon\>_?     
 
@@ -361,6 +388,8 @@ Dit betekent dat SHACL gebruikt kan worden om extra regels en beperkingen toe te
 
 SHACL's worden beschreven in RDF.
 
+SHACL implementaties gaan uit van de zogenaamde 'Closed World Assumption'. Dit betekent dat alle data waarnaar wordt verwezen, dit zowel typeringen als de data waarden zelf, in de validatie context beschikbaar moeten zijn. Indien je bijvoorbeeld verwijst naar een element van het type Concept, dan dient ook de data van het concept waarnaar verwezen aanwezig te zijn in de validatie context.
+
 ### LDES (Linked Data Event Stream)
 
 #### Inleiding
@@ -550,10 +579,9 @@ Ter illustratie, het vorige voorbeeld in json-ld formaat (met context ingebed):
 De contractspecificaties (het semantisch model / het IPDC-LPDC implementatiemodel) beschrijft in detail de gewenste datastructuur, zoals kardinaliteiten, codelijsten, datatypes, ... .
 Het IPDC-LPDC implementatiemodel beschrijft de datastructuur voor ConceptSnapshots en InstantieSnapshots. Merk op dat deze gelijkaardig, maar niet identiek zijn. Het is dus belangrijk om voor de instantie die aangeboden worden aan de LPDC-module gebaseerd wordt op de informatie bij Instanties. 
 
-!!!!!!!!! Op datum van 2024-03-06 staat een versie van het IPDC-LPDC implementatiemodel van 2022-06-15 op de productiepagina's van data.vlaanderen.be. Deze krijgt normaal eerstdaags een update. Een preview van die update is [hier](https://productencatalogus.data.test-vlaanderen.be/doc/implementatiemodel/ipdc-lpdc/ontwerpstandaard/2024-03-08/) te vinden (op de testpagina's van data.vlaanderen.be). Tot wanneer de versie op productie is geupdate, kun je best naar de previewversie/versie op de testpagina's kijken. Deze versie zal niet meer wijzigen en zo naar productie worden gebracht. 
+!!!!!!!!! Op datum van 2024-04-25 staat een versie van het IPDC-LPDC implementatiemodel van 2022-06-15 op de productiepagina's van data.vlaanderen.be. Deze krijgt normaal eerstdaags een update. Een preview van die update is [hier](https://productencatalogus.data.test-vlaanderen.be/doc/implementatiemodel/ipdc-lpdc/ontwerpstandaard/2024-04-25/) te vinden (op de testpagina's van data.vlaanderen.be). Tot wanneer de versie op productie is updated, kun je best naar de previewversie/versie op de testpagina's kijken. Deze versie zal niet meer wijzigen en zo naar productie worden gebracht. 
 
-De info op productie: [IPDC-LPDC implementatiemodel](https://productencatalogus.data.vlaanderen.be/doc/implementatiemodel/ipdc-lpdc/). Let op de datum "uitgegeven op" die moet later minstens 2024-03-06 of later zijn! 
-
+De info op productie: [IPDC-LPDC implementatiemodel](https://productencatalogus.data.vlaanderen.be/doc/implementatiemodel/ipdc-lpdc/). Let op de datum "uitgegeven op" die moet later minstens 2024-04-25 of later zijn! 
 
 
 ## Voorbeelden + implementatie tips
@@ -566,7 +594,7 @@ Een uitvoerbare, **voorbeeld-implementatie van een instantiesnapshot-LDES-stub**
 
 Dit is een **Typescript** project dat een **vaste lijst van 3 pagina's** teruggeeft. 
 
-Het bevat ook een endpoint voor de [InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld).
+Het bevat ook een endpoint voor de [ipdc-lpdc-im.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ipdc-lpdc-im.jsonld) en [ldes.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ldes.jsonld).
 
 Om het project effectief uit te voeren, is de recentste [LTS-versie van Node JS](https://nodejs.org/en) vereist.
 
@@ -576,7 +604,7 @@ Om het project effectief uit te voeren, is de recentste [LTS-versie van Node JS]
 ```
 
 Je kan de pagina's uitlezen door http://localhost/doc/instancesnapshot?pageNumber=0 , 1, 2 uit te voeren.
-Dit geeft de data in [json-ld formaat](#json-ld) terug, daarbij verwijzend naar de [InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld).
+Dit geeft de data in [json-ld formaat](#json-ld) terug, daarbij verwijzend naar de [ipdc-lpdc-im.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ipdc-lpdc-im.jsonld) en [ldes.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ldes.jsonld).
 
 Pagina's 0, 1, 2 zijn ook [hier](../tests/instancesnapshot-ldes-stub/ldes-pages/page-0.json), [hier](../tests/instancesnapshot-ldes-stub/ldes-pages/page-1.json) en [hier](../tests/instancesnapshot-ldes-stub/ldes-pages/page-2.json) te vinden.
 
@@ -602,7 +630,7 @@ Uitlezen van volledige LDES en schrijven naar console-uitvoer als [json-ld forma
   npm run start-export-as-json-ld
 ```
 
-Uitlezen van volledige LDES, interpreteren en samenvoegen met verwezen [InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld) en resultaat schrijven naar console-uitvoer als [turtle formaat](#turtle).
+Uitlezen van volledige LDES, interpreteren en samenvoegen met verwezen [ipdc-lpdc-im.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ipdc-lpdc-im.jsonld) en [ldes.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ldes.jsonld) en resultaat schrijven naar console-uitvoer als [turtle formaat](#turtle).
 ```shell
   npm run start-export-as-turtle
 ```
@@ -613,9 +641,9 @@ De [LDES-reader](#integrerende-gemeente-ldes-reader) leest [json-ld](#json-ld) e
 
 Beide formaten ([json-ld](#json-ld) en [turtle](#turtle)) zijn serialisatie-formaten voor dezelfde data.
 
-Indien de [json-ld](#json-ld) data en de bijhorende [InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld) goed op elkaar afgestemd zijn, dan zal dit een correcte [turtle](#turtle) genereren.
+Indien de [json-ld](#json-ld) data en de bijhorende [ipdc-lpdc-im.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ipdc-lpdc-im.jsonld) en [ldes.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ldes.jsonld) goed op elkaar afgestemd zijn, dan zal dit een correcte [turtle](#turtle) genereren.
 
-Met 'correct' bedoelen we, één waarin voor elk [json-ld](#json-ld) datum een overeenkomstig attribuut ter interpretatie gevonden wordt in de [InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld).
+Met 'correct' bedoelen we, één waarin voor elk [json-ld](#json-ld) datum een overeenkomstig attribuut ter interpretatie gevonden wordt in de [ipdc-lpdc-im.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ipdc-lpdc-im.jsonld) en [ldes.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ldes.jsonld).
 
 Indien er in één van de twee een afwijking is, dan zal de turtle ofwel minder triples bevatten, niet goed gevormde IRIs hebben, of mogelijk andere problemen vertonen.
 
@@ -635,40 +663,31 @@ Dit moet de **publiek toegankelijke internet-host zijn die de LDES aanbiedt**.
 
 Merk op dat deze door de [uitvoerbare instantiesnapshot-LDES-stub voorheen](#uitvoerbare-instantiesnapshot-ldes-stub) vervangen wordt door **'localhost'**.   
 
-![page-0.json.png](img%2Fpage-0.json.png)
+![page-0.json.png](img/page-0.json.png)
 
 1. `"timestampPath": "generatedAtTime" `, `"versionOfPath": "isVersionOf"`: properties met values die aangeven welke properties in de members gebruikt worden voor de [versionering van LDES](#versionering). Zowel `generatedAtTime` en `isVersionOf` zal je terugvinden in elke member.
 2. Identificatie van deze pagina van de LDES.
 3. Relation wijst naar andere pagina's van LDES. In dit voorbeeld is er een volgende pagina met nummer 1. In [page-1](../tests/instancesnapshot-ldes-stub/ldes-pages/page-1.json) vindt u navigatie terug naar [page-0](../tests/instancesnapshot-ldes-stub/ldes-pages/page-0.json) en verder naar [page-2](../tests/instancesnapshot-ldes-stub/ldes-pages/page-2.json). In [page-2](../tests/instancesnapshot-ldes-stub/ldes-pages/page-2.json) vindt u navigatie terug naar [page-1](../tests/instancesnapshot-ldes-stub/ldes-pages/page-1.json).
-4. Verwijst naar de gebruikte [InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld). In dit voorbeeld wordt deze apart hosted. Kan eventueel ook ingesloten meegegeven worden.
+4. Verwijst naar de gebruikte [ipdc-lpdc-im.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ipdc-lpdc-im.jsonld) en [ldes.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/ldes.jsonld). In dit voorbeeld wordt deze apart hosted. Kan eventueel ook ingesloten meegegeven worden.
 5. Identificatie van de LDES pagina, en aangeven dat het een LDES is.
 6. Onder member volgt een json array van alle members van deze pagina van de LDES.
 7. `"@id": "http://data.lblod.info/id/public-service-snapshot/6e9334cb-272c-443d-8b0a-1b02149a5126"` identificeert hierbij de [instantiesnapshot](#instantiesnapshot). 
 Deze [IRI](#iris) voldoet aan formaat 'http://data.lblod.info/id/public-service-snapshot/<genereerde-uuid>', en dient door de integrerende gemeente gegenereerd te worden.
 8. `"isVersionOf": "http://data.lblod.info/id/public-service/c0d6bf9a-fcc4-4d46-beb6-3f4d80f03bf3",` identificeert de [instantie](#instantie).
 Deze [IRI](#iris) voldoet aan formaat 'http://data.lblod.info/id/public-service/<genereerde-uuid>', en dient door de integrerende gemeente gegenereerd te worden.
-9. `"createdBy": "353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5"` : `<uuid>` van de integrerende gemeente.
-[InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld) definieert een basis url waardoor in [turtle formaat](#turtle) de [iri](#iris) wordt [http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5](http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5). 
-Dit is een uitvoerbare URL die wijst in dit voorbeeld naar Gemeente Gent.
-Kan ook als absolute URL opgegeven worden.
-10. `"aangemaaktOp": "2024-02-14T13:42:12.357Z",` `"bewerktOp": "2024-02-14T13:59:25.236Z",`: geeft het moment dat de [instantie](#instantie) aangemaakt en respectievelijk laatst bewerkt werd. Dit wordt door LPDC ad verbatim overgenomen.
+9. `"aangemaaktDoor": "http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5"` : Iri van de integrerende gemeente. Wordt als absolute URL opgegeven.
+10. `"creatie": "2024-02-14T13:42:12.357Z",` `"laatstGewijzigd": "2024-02-14T13:59:25.236Z",`: geeft het moment dat de [instantie](#instantie) aangemaakt en respectievelijk laatst bewerkt werd. Dit wordt door LPDC ad verbatim overgenomen.
 11. `"generatedAtTime": "2024-02-18T06:32:10.377Z"`: geeft het moment dat de [instantiesnapshot](#instantiesnapshot) aangemaakt werd. Is een property die door LDES-verwerking wordt geïnterpreteerd.
-12. `"titel:"`, `"beschrijving:"`: een voorbeeld van 2 data velden die gelinked zijn vanuit [instantie](#instantie), beide string literals met een taal tag.
-13. `"bevoegdeOverheden": ["353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5"]`: `<uuid>` van de bevoegde overheid.
-[InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld) definieert een basis url waardoor in [turtle formaat](#turtle) de [iri](#iris) wordt [http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5](http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5).
-Dit is een uitvoerbare URL die in dit voorbeeld wijst naar Gemeente Gent.
-Kan ook als absolute URL opgegeven worden.
+12. `"naam:"`, `"beschrijving:"`: een voorbeeld van 2 data velden die gelinked zijn vanuit [instantie](#instantie), beide string literals met een taal tag.
+13. `"bevoegdeOverheden": ["http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5"]`: Iri's van de bevoegde overheid. Wordt als absolute URL opgegeven.
 Meerdere `bevoegdeOverheden` kunnen opgegeven worden, dus is dit json-type een array.
-14. `"geografischToepassingsgebieden": ["http://vocab.belgif.be/auth/refnis2019/44021"]`: de geografische toepassingsgebieden relevant voor deze [instantie](#instantie). 
-Een code uit de http://vocab.belgif.be/auth/refnis2019 wordt verwacht.
+14. `"geografischToepassingsgebieden": ["BE23444021"]`: de geografische toepassingsgebieden relevant voor deze [instantie](#instantie). 
+Een code uit de [nuts - lau codes](https://raw.githubusercontent.com/Informatievlaanderen/ipdc-lpdc/ontwerp-2024-04-25/codelijsten/geografisch-toepassingsgebied.ttl) wordt verwacht. Een basis url (http://data.europa.eu/nuts/code/) wordt automatisch vooraan toegevoegd indien u een relatieve opgeeft. Een absolute url kan ook opgegeven worden. 
 Meerdere `geografischToepassingsgebieden` kunnen opgegeven worden, dus is dit json-type een array.
-15. `"uitvoerendeOverheden": ["353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5"]`: `<uuid>` van de uitvoerende overheid.
-[InstanceJsonLdContext.jsonld](../tests/instancesnapshot-ldes-stub/ldes-pages/InstanceJsonLdContext.jsonld) definieert een basis url waardoor in [turtle formaat](#turtle) de [iri](#iris) wordt [http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5](http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5).
-Dit is een uitvoerbare URL die wijst in dit voorbeeld naar Gemeente Gent.
-Kan ook als absolute URL opgegeven worden.
+15. `"uitvoerendeOverheden": ["http://data.lblod.info/id/bestuurseenheden/353234a365664e581db5c2f7cc07add2534b47b8e1ab87c821fc6e6365e6bef5"]`: Iri's van de uitvoerende overheid. Wordt als absolute URL opgegeven
 Meerdere `uitvoerendeOverheden` kunnen opgegeven worden, dus is dit json-type een array.
 16. Voorbeeld van een tweede, later gegenereerde (`"generatedAtTime": "2024-02-20T07:32:10.377Z"`), [instantie snapshot](#instantiesnapshot)(`"http://data.lblod.info/id/public-service-snapshot/84d1e739-d20c-4986-84d8-331bd58feb09"`) van dezelfde [instantie](#instantie) (`"isVersionOf": "http://data.lblod.info/id/public-service/c0d6bf9a-fcc4-4d46-beb6-3f4d80f03bf3"`). 
-Hier werd `titel` en `beschrijving` updatet.
+Hier werd `naam` en `beschrijving` updatet.
 Merk op dat **telkens** de **volledige data van de instantie dient te worden meegegeven** bij elke nieuwe [instantie snapshot](#instantiesnapshot). Een nieuwe [instantie snapshot](#instantiesnapshot) geeft m.a.w. niet enkel de verandering ten opzicht van vorige weer.
 
 Ter illustratie de gegeneerde [turtle](#turtle) voor dit deel van LDES, merk op dat hierin de informatie uit de LDES is _verwijderd_ (behalve `generatedAtTime` en `isVersionOf`).
@@ -683,7 +702,7 @@ Dit is de informatie die door LPDC zal verwerkt worden.
     <http://www.w3.org/ns/prov#generatedAtTime> "2024-02-18T06:32:10.377Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
     <http://purl.org/dc/terms/title> "Minimalistische instantie"@nl-be-x-informal;
     <http://purl.org/dc/terms/description> "<p data-indentation-level=\"0\">Beschrijving van de minimalistische instantie</p>"@nl-be-x-informal;
-    <http://purl.org/dc/terms/spatial> <http://vocab.belgif.be/auth/refnis2019/44021>.
+    <http://purl.org/dc/terms/spatial> <http://data.europa.eu/nuts/code/BE23444021>.
 
 <http://data.lblod.info/id/public-service-snapshot/84d1e739-d20c-4986-84d8-331bd58feb09> a <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#InstancePublicServiceSnapshot>;
     <http://purl.org/dc/terms/isVersionOf> <http://data.lblod.info/id/public-service/c0d6bf9a-fcc4-4d46-beb6-3f4d80f03bf3>;
@@ -693,11 +712,22 @@ Dit is de informatie die door LPDC zal verwerkt worden.
     <http://www.w3.org/ns/prov#generatedAtTime> "2024-02-20T07:32:10.377Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
     <http://purl.org/dc/terms/title> "Minimalistische instantie updatet"@nl-be-x-informal;
     <http://purl.org/dc/terms/description> "<p data-indentation-level=\"0\">Beschrijving van de minimalistische instantie updatet</p>"@nl-be-x-informal;
-    <http://purl.org/dc/terms/spatial> <http://vocab.belgif.be/auth/refnis2019/44021>.
+    <http://purl.org/dc/terms/spatial> <http://data.europa.eu/nuts/code/BE23444021>.
 ```
 
-De volledige test dataset voor LDES instanties kan je [hier](..%2Ftests%2Fintegrerende-gemeente-ldes-reader%2Fldes%20instantie%20test%20voorbeelden.ttl) in ttl formaat vinden.
+De volledige test dataset voor LDES-instanties kan je [hier](..%2Ftests%2Fintegrerende-gemeente-ldes-reader%2Fldes%20instantie%20test%20voorbeelden.ttl) in ttl formaat vinden. 
 
+_Nota:_ Sommige turtle verwerking-programma's kunnen niet goed om met de [shorthand syntax van turtle](https://www.w3.org/TR/turtle/#literals) in de bestanden. (bvb https://github.com/Informatievlaanderen/VSDS-LDESServer4J). Indien u de bestanden probeert op te laden, krijg je een fout. Het volstaat om triples van de voorbeelden om te vormen tot zijn lexicografische vorm en bijhorend datatype. (bvb: `true` => `"true"^^xsd:boolean`). 
+
+### SHACL voorbeeld validaties
+
+SHACL voorbeeld programma's zijn [hier](../migration-scripts/tests-shacl) te vinden.
+
+### Zoektermen (https://www.w3.org/ns/dcat#keyword)
+
+Het implementatie model vermeldt correct dat er meerdere zoektermen mogen zijn per taal.
+
+LPDC ondersteunt enkel @nl als taal voor zoektermen. Zoektermen in andere talen zijn toegestaan, maar worden niet verwerkt.
 
 ## Verklarende woordenlijst
 
@@ -758,4 +788,3 @@ Het bevat een unieke id per opname, een tijdstip van opname, een verwijzing naar
 - [ldes-consumer-service](https://github.com/redpencilio/ldes-consumer-service)
 - [TREEcg (TREE community group - Hypermedia controls for publishing collections of entities)](https://github.com/TREEcg), met oa. [Actor Init LDES client (Metadata harvester for a Linked Data Event Stream.)](https://github.com/TREEcg/event-stream-client/tree/main/packages/actor-init-ldes-client)
 - [Node JS](https://nodejs.org/en)
-
