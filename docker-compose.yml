@@ -223,7 +223,10 @@ services:
       MU_SPARQL_ENDPOINT: 'http://database:8890/sparql'
       MU_APPLICATION_GRAPH: "http://mu.semte.ch/application"
       INSTANCE_SNAPSHOT_PROCESSING_CRON_PATTERN: "*/1 * * * *" # run the job every minute
-      CONCEPT_SNAPSHOT_PROCESSING_CRON_PATTERN: "*/1 * * * *" # run the job every minute
+      CONCEPT_SNAPSHOT_PROCESSING_CRON_PATTERN: "*/1 * * * *" 
+      NODE_ENV: "development"
+    volumes:
+      - ./lpdc-management/:/app/# run the job every minute
     labels:
       - "logging=true"
     healthcheck:
