@@ -1,0 +1,14 @@
+<https://ipdc.tni-vlaanderen.be/id/instantie/9ffb00ff-8907-4b6d-b8bc-84181f3fb4d511> a <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#InstancePublicService> ;
+            <http://mu.semte.ch/vocabularies/core/uuid> '''9ffb00ff-8907-4b6d-b8bc-84181f3fb4d511''';
+            <http://purl.org/pav/createdBy> <http://data.lblod.info/id/bestuurseenheden/5116efa8-e96e-46a2-aba6-c077e9056a96>;
+            <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/instance-status/ontwerp-ai-gegenereerd>;
+            <http://purl.org/dc/terms/title> '''Test minimaal product'''@nl-be-x-formal;
+            <http://purl.org/dc/terms/description> '''<p>Voor de uitbatinbeschikt. </p>'''@nl-be-x-formal;
+            <http://www.w3.org/ns/dcat#keyword> '''ambulante activiteit'''@nl, '''marktkraam'''@nl;
+            <http://data.europa.eu/m8g/thematicArea> <https://productencatalogus.data.vlaanderen.be/id/concept/Thema/EconomieWerk>;
+            <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#targetAudience> <https://productencatalogus.data.vlaanderen.be/id/concept/Doelgroep/Burger>, <https://productencatalogus.data.vlaanderen.be/id/concept/Doelgroep/GezinMetKinderenOfJongeren>;
+            <http://schema.org/dateCreated> '''2024-03-09T15:40:24.123296327Z'''^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+            <http://schema.org/dateModified> '''2024-05-05T09:05:34.971218272Z'''^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+            <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#isArchived> false;
+            <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#dutchLanguageVariant> '''nl-be-x-formal''' ;
+            <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#needsConversionFromFormalToInformal> false .
