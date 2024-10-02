@@ -361,11 +361,7 @@ export class QuadsToDomainMapper {
     }
 
     targetAudiences(id: Iri): TargetAudienceType[] {
-        return [TargetAudienceType.GEZINMETKINDERENOFJONGEREN];
-        // console.log("id: " + id);
-        // console.log(TargetAudienceType);
-        // console.log(NS.dvc.doelgroep);
-        // return this.asEnums(TargetAudienceType, NS.dvc.doelgroep, this.storeAccess.statements(this.asNamedOrBlankNode(id), NS.lpdcExt('targetAudience')));
+        return this.asEnums(TargetAudienceType, NS.dvc.doelgroep, this.storeAccess.statements(this.asNamedOrBlankNode(id), NS.lpdcExt('targetAudience')));
     }
 
     themes(id: Iri): ThemeType[] {
