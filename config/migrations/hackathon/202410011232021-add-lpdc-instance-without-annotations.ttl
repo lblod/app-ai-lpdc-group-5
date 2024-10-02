@@ -19,6 +19,7 @@
             <http://schema.org/dateCreated> '''2023-03-09T15:40:24.123296327Z'''^^<http://www.w3.org/2001/XMLSchema#dateTime>;
             <http://schema.org/dateModified> '''2023-05-05T09:05:34.971218272Z'''^^<http://www.w3.org/2001/XMLSchema#dateTime>;
             <http://schema.org/productID> '''2127''';
+            <http://www.w3.org/ns/adms#status> <http://lblod.data.gift/concepts/instance-status/ontwerp>;
             <https://productencatalogus.data.vlaanderen.be/ns/ipdc-lpdc#isArchived> false.
 
         <https://ipdc.tni-vlaanderen.be/id/requirement/6c152aa1-7c1f-460c-a2cb-6c9e040b8134> a <http://data.europa.eu/m8g/Requirement>;
