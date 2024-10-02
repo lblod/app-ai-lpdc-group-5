@@ -15,7 +15,11 @@ export enum TargetAudienceType {
     VLAAMSEOVERHEID = 'VlaamseOverheid',
     LOKAALBESTUUR = 'LokaalBestuur',
     VERENIGING = 'Vereniging',
-    GEZINMETKINDERENOFJONGEREN = 'GezinMetKinderenOfJongeren'
+    GEZINMETKINDERENOFJONGEREN = 'GezinMetKinderenOfJongeren',
+    WEDUWEOFWEDUWNAAR = 'WeduweofWeduwnaar',
+    PERSOONMETFYSIEKEZIEKTEOFBEPERKING = 'PersoonMetFysiekeZiekteOfBeperking',
+    PERSOONMETEENMIGRATIEACHTERGROND = 'PersoonMetEenMigratieAchtergrond',
+    OUDERE = 'Oudere'
 }
 
 export enum ThemeType {

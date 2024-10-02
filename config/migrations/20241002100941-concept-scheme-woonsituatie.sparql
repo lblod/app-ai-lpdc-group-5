@@ -1,31 +1,27 @@
 INSERT DATA {
     GRAPH <http://mu.semte.ch/graphs/public> {
-      <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326> a <http://www.w3.org/2004/02/skos/core#ConceptScheme>;
-      <http://www.w3.org/2004/02/skos/core#prefLabel>"living sutiation of a citizen";
-      <http://mu.semte.ch/vocabularies/core/uuid> "627415c1-d378-4fcc-859f-a6c99d9b1326".
-
-    <http://lblod.data.gift/concepts/bd0a48e7-8f27-4057-8175-274fbfaa15a3> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <https://productencatalogus.data.vlaanderen.be/id/concept/Doelgroep/(Kandidaat)Huurder> a <http://www.w3.org/2004/02/skos/core#Concept>;
       <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
       <http://www.w3.org/2004/02/skos/core#prefLabel> "(Kandidaat) Huurder";
-      <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
+      <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://productencatalogus.data.vlaanderen.be/id/conceptscheme/Doelgroep>;
       <http://mu.semte.ch/vocabularies/core/uuid> "bd0a48e7-8f27-4057-8175-274fbfaa15a3".
 
-    <http://lblod.data.gift/concepts/8a3e802c-8852-4632-a475-80e137455469> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <https://productencatalogus.data.vlaanderen.be/id/concept/Doelgroep/Eigenaar> a <http://www.w3.org/2004/02/skos/core#Concept>;
       <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
       <http://www.w3.org/2004/02/skos/core#prefLabel> "Eigenaar";
-      <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
+      <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://productencatalogus.data.vlaanderen.be/id/conceptscheme/Doelgroep>;
       <http://mu.semte.ch/vocabularies/core/uuid> "8a3e802c-8852-4632-a475-80e137455469".
 
-    <http://lblod.data.gift/concepts/199f6213-a322-4efc-8927-a6c2b1b9937b> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <https://productencatalogus.data.vlaanderen.be/id/concept/Doelgroep/DakOfThuisloos> a <http://www.w3.org/2004/02/skos/core#Concept>;
       <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
       <http://www.w3.org/2004/02/skos/core#prefLabel> "Dak- of thuisloos";
-      <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
+      <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://productencatalogus.data.vlaanderen.be/id/conceptscheme/Doelgroep>;
       <http://mu.semte.ch/vocabularies/core/uuid> "199f6213-a322-4efc-8927-a6c2b1b9937b".
 
-    <http://lblod.data.gift/concepts/4e43ee44-2957-4f8d-b3c8-ed28d6f10a02> a <http://www.w3.org/2004/02/skos/core#Concept>;
+    <https://productencatalogus.data.vlaanderen.be/id/concept/Doelgroep/AndereWoonsituatie> a <http://www.w3.org/2004/02/skos/core#Concept>;
       <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
       <http://www.w3.org/2004/02/skos/core#prefLabel> "Andere woonsituatie";
-      <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
+      <http://www.w3.org/2004/02/skos/core#topConceptOf> <https://productencatalogus.data.vlaanderen.be/id/conceptscheme/Doelgroep>;
       <http://mu.semte.ch/vocabularies/core/uuid> "4e43ee44-2957-4f8d-b3c8-ed28d6f10a02".
     }
 }
