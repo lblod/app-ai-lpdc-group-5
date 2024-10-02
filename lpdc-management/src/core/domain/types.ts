@@ -15,6 +15,7 @@ export enum TargetAudienceType {
     VLAAMSEOVERHEID = 'VlaamseOverheid',
     LOKAALBESTUUR = 'LokaalBestuur',
     VERENIGING = 'Vereniging',
+    GEZINMETKINDERENOFJONGEREN = 'GezinMetKinderenOfJongeren'
 }
 
 export enum ThemeType {
