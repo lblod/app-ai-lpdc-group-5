@@ -11,7 +11,7 @@ dvc:GezinMetKinderenOfJongeren
   skos:inScheme     dvcs:Doelgroep ; 
   skos:broader      dvc:Burger .
 
-dvc:Burger skos:narrower dvc:GezinMetKinderenOfJongeren
+dvc:Burger skos:narrower dvc:GezinMetKinderenOfJongeren .
 
 dvc:WeduweofWeduwnaar
   a                 skos:Concept ;
@@ -21,7 +21,7 @@ dvc:WeduweofWeduwnaar
   skos:inScheme     dvcs:Doelgroep ; 
   skos:broader      dvc:Burger .
 
-dvc:Burger skos:narrower dvc:WeduweofWeduwnaar
+dvc:Burger skos:narrower dvc:WeduweofWeduwnaar .
 
 dvc:PersoonMetFysiekeZiekteOfBeperking
   a                 skos:Concept ;
@@ -31,7 +31,7 @@ dvc:PersoonMetFysiekeZiekteOfBeperking
   skos:inScheme     dvcs:Doelgroep ; 
   skos:broader      dvc:Burger .
 
-dvc:Burger skos:narrower dvc:PersoonMetFysiekeZiekteOfBeperking
+dvc:Burger skos:narrower dvc:PersoonMetFysiekeZiekteOfBeperking .
 
 dvc:PersoonMetEenMigratieAchtergrond
   a                 skos:Concept ;
@@ -41,7 +41,7 @@ dvc:PersoonMetEenMigratieAchtergrond
   skos:inScheme     dvcs:Doelgroep ; 
   skos:broader      dvc:Burger .
 
-dvc:Burger skos:narrower dvc:PersoonMetEenMigratieAchtergrond
+dvc:Burger skos:narrower dvc:PersoonMetEenMigratieAchtergrond .
 
 dvc:Oudere
   a                 skos:Concept ;
@@ -51,4 +51,4 @@ dvc:Oudere
   skos:inScheme     dvcs:Doelgroep ; 
   skos:broader      dvc:Burger .
 
-dvc:Burger skos:narrower dvc:Oudere
+dvc:Burger skos:narrower dvc:Oudere .
