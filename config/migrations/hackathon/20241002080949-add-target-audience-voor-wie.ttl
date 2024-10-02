@@ -1,0 +1,54 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dvcs: <https://productencatalogus.data.vlaanderen.be/id/conceptscheme/> .
+@prefix dvc:  <https://productencatalogus.data.vlaanderen.be/id/concept/Doelgroep/> .
+@prefix mu:   <http://mu.semte.ch/vocabularies/core/>.
+
+dvc:GezinMetKinderenOfJongeren
+  a                 skos:Concept ;
+  mu:uuid           "093fd217-10db-4985-9fba-699a6b587d321" ;
+  skos:prefLabel    "Gezin met kinderen of jongeren"@nl ;
+  skos:definition   "Gezin met kinderen of jongeren"@nl ;
+  skos:inScheme     dvcs:Doelgroep ; 
+  skos:broader      dvc:Burger .
+
+dvc:Burger skos:narrower dvc:GezinMetKinderenOfJongeren .
+
+dvc:WeduweofWeduwnaar
+  a                 skos:Concept ;
+  mu:uuid           "093fd217-10db-4985-9fba-699a6b587d322" ;
+  skos:prefLabel    "Weduwe of weduwnaar"@nl ;
+  skos:definition   "Weduwe of weduwnaar"@nl ;
+  skos:inScheme     dvcs:Doelgroep ; 
+  skos:broader      dvc:Burger .
+
+dvc:Burger skos:narrower dvc:WeduweofWeduwnaar .
+
+dvc:PersoonMetFysiekeZiekteOfBeperking
+  a                 skos:Concept ;
+  mu:uuid           "093fd217-10db-4985-9fba-699a6b587d323" ;
+  skos:prefLabel    "Persoon met fysieke ziekte of beperking"@nl ;
+  skos:definition   "Persoon met fysieke ziekte of beperking"@nl ;
+  skos:inScheme     dvcs:Doelgroep ; 
+  skos:broader      dvc:Burger .
+
+dvc:Burger skos:narrower dvc:PersoonMetFysiekeZiekteOfBeperking .
+
+dvc:PersoonMetEenMigratieAchtergrond
+  a                 skos:Concept ;
+  mu:uuid           "093fd217-10db-4985-9fba-699a6b587d323" ;
+  skos:prefLabel    "Persoon met een migratieachtergrond"@nl ;
+  skos:definition   "Persoon met een migratieachtergrond"@nl ;
+  skos:inScheme     dvcs:Doelgroep ; 
+  skos:broader      dvc:Burger .
+
+dvc:Burger skos:narrower dvc:PersoonMetEenMigratieAchtergrond .
+
+dvc:Oudere
+  a                 skos:Concept ;
+  mu:uuid           "093fd217-10db-4985-9fba-699a6b587d323" ;
+  skos:prefLabel    "Oudere"@nl ;
+  skos:definition   "Oudere"@nl ;
+  skos:inScheme     dvcs:Doelgroep ; 
+  skos:broader      dvc:Burger .
+
+dvc:Burger skos:narrower dvc:Oudere .
