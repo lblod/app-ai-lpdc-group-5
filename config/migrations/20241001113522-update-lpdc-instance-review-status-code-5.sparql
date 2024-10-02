@@ -7,10 +7,3 @@ INSERT DATA {
            <http://mu.semte.ch/vocabularies/core/uuid> "aaa78dbb-204b-423c-b5ab-8f26745911a7".
     }
 }
-
-        <http://lblod.data.gift/concepts/instance-status/ontwerp>
-        a                                                   <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://mu.semte.ch/vocabularies/core/uuid>         """aacad12a-5ecc-4663-9c5f-00c208a8eaea""" ;
-        <http://www.w3.org/2004/02/skos/core#inScheme>      <http://lblod.data.gift/concept-schemes/9cf6fa63-1f49-4d53-af06-e1c235ece10b> ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>     "Ontwerp"@nl ;
-        <http://www.w3.org/2004/02/skos/core#topConceptOf>  <http://lblod.data.gift/concept-schemes/9cf6fa63-1f49-4d53-af06-e1c235ece10b> .
