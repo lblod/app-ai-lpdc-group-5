@@ -19,7 +19,7 @@ INSERT DATA {
 
     <http://lblod.data.gift/concepts/4f7831c8-c749-4598-81eb-9033fec5b062> a <http://www.w3.org/2004/02/skos/core#Concept>;
       <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
-      <http://www.w3.org/2004/02/skos/core#prefLabel> "Werkzoeked";
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "Werkzoekend";
       <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/627415c1-d378-4fcc-859f-a6c99d9b1326>;
       <http://mu.semte.ch/vocabularies/core/uuid> "4f7831c8-c749-4598-81eb-9033fec5b062".
 
